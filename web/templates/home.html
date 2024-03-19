@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+   
+</head>
+<body>
+    <div class="navbar" >
+        <a href="create_category">Create Category</a>
+        <a href="create_company">Create Company</a>
+        <a href="create_job">Create Job</a>
+    </div>
+    
+    <table class="table">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>phone_number</th>
+            <th>price</th>
+            <th>category</th>
+            <th>company</th>
+            <th></th>
+          
+        </tr>
+        {% for job in job_list %}
+        <tr>
+            <td> {{job.id}} </td>
+            <td> {{job.name}} </td>
+            <td> {{job.phone_number}} </td>
+            <td> {{job.price}} </td>
+            <td> {{job.category}} </td>
+            <td> {{job.company}} </td>
+            <td> <a class="Up" href="{% url 'update_job' pk=job.id %}">Update Job</a> <br>
+                <a class="del" href="{% url 'delete_job' pk=job.id %}">Delete</a> </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block content %}
+<h2 class="del">Delete Job</h2>
+<form class="dell" method="Post">
+    {% csrf_token %} 
+    <button type="submit">Delete</button>
+</form> 
+
+{% endblock %} 

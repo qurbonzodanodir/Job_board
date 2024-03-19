@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}">
+{% block content %}
+<h2 class="UPD" > Update Job Category</h2>
+<form class="Update_" method="Post">
+    {% csrf_token %} 
+    {{ form.as_p }}
+    <button type="submit">Save Changes</button>
+
+</form> 
+
+{% endblock %} 
